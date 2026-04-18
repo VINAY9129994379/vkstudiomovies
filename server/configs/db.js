@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    mongoose.connection.on('connected', () => {
-      console.log('Database connected')
-    })
+    await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: "vkstudiomovie"
+    });
 
-    await mongoose.connect(`${process.env.MONGODB_URI}/vkstudiomovie`)
+    console.log("Database connected");
   } catch (error) {
-    console.log(error.message)
+    console.log("MongoDB connection error:", error.message);
   }
-}
+};
 
-export default connectDB
+export default connectDB;

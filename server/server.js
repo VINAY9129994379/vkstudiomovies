@@ -21,12 +21,12 @@ app.use(clerkMiddleware())
 await connectDB()
 
 app.get('/', (req, res) => {
-  res.send('Server is running')
+  res.send('Server is running') 
 })
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
-})
+  console.log(`Server is running on port ${port}`)      
+}) 
